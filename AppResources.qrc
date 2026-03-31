@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file alias="close.png">Resources/closeIcon.png</file>
+        <file alias="app_icon.png">Resources/AppIcon.png</file>
+        <file alias="settings.png">Resources/settings.png</file>
+        <file alias="bin.png">Resources/bin.png</file>
+        <file alias="up-arrow.png">Resources/up-arrow.png</file>
+        <file alias="down-arrow.png">Resources/down-arrow.png</file>
+        <file alias="checkbox.png">Resources/checkbox.png</file>
+    </qresource>
+    <qresource prefix="/fonts">
+        <file alias="Inter-Regular.otf">Resources/Inter-Regular.otf</file>
+    </qresource>
+    <qresource prefix="/styles">
+        <file alias="dark_pro.qss">Resources/dark_pro.qss</file>
+    </qresource>
+</RCC>
