@@ -3,11 +3,22 @@
 #include <QApplication>
 #include <QFontDatabase>
 #include <QFile>
+#include <QSharedMemory>
+#include <QMessageBox>
 
 int main(int argc, char *argv[])
 {
     QGuiApplication::setHighDpiScaleFactorRoundingPolicy(Qt::HighDpiScaleFactorRoundingPolicy::PassThrough);
     QApplication app(argc, argv);
+
+    // check if already started
+    QSharedMemory SharedMemory("RioClipboardManagerKey");
+    if (!SharedMemory.create(1))
+    {
+        QMessageBox::warning(nullptr, "Ошибка", "Приложение уже запущено!");
+        return 0;
+    }
+
     app.setQuitOnLastWindowClosed(false);
 
     // For use QSettings
