@@ -83,8 +83,13 @@ void AppSettings::UpdateStartup(bool Add)
 
     if (Add)
     {
-        QString appPath = QDir::toNativeSeparators(QCoreApplication::applicationFilePath());
-        settings.setValue("RioClipboardManager", QString("\"%1\"").arg(appPath));
+        // temp fix for autostart, bc idk why it wont start on login
+
+        const QString scriptPath = QDir::toNativeSeparators(QCoreApplication::applicationDirPath() + "/StartRioClipboardManager.vbs");
+        const QString wscriptPath = QDir::toNativeSeparators(qEnvironmentVariable("WINDIR") + "\\System32\\wscript.exe");
+        const QString command = QString("\"%1\" \"%2\"").arg(wscriptPath, scriptPath);
+
+        settings.setValue("RioClipboardManager", command);
     }
     else
         settings.remove("RioClipboardManager");
